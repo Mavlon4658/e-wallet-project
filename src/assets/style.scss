@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
     padding: 0;
@@ -652,19 +653,40 @@ input {
     }
 }
 
-#pay_modal {
-    display: none;
+.pay_modal_wrapper {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    .modal_bg {
+        position: absolute;
+        background: rgba(38, 35, 41, 0.50);
+        backdrop-filter: blur(2.5px);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+.pay_modal {
+    position: relative;
     border-radius: 16px;
     background: #1B1B1B;
     padding: 40px 60px;
+    width: 455px;
 
     .modal_icon {
         text-align: center;
         padding: 10px;
+        margin-bottom: 30px;
 
         svg {
             width: 106px;
@@ -672,8 +694,22 @@ input {
         }
     }
 
+    @keyframes loaderAnimation {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+
+    .load_icon {
+        svg {
+            animation: loaderAnimation 1.5s linear infinite;
+        }
+    }
+
     h3 {
-        margin: 30px 0;
         color: var(--main-color-ffffff, #FFF);
         text-align: center;
         font-family: 'Rubik', sans-serif;
@@ -682,6 +718,21 @@ input {
         font-weight: 700;
         line-height: 135%;
         letter-spacing: 0.4px;
+    }
+
+    h4 {
+        color: #FFF;
+        text-align: center;
+        font-family: "Rubik", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 135%;
+        margin-top: 8px;
+    }
+
+    .confirm_inputs {
+        margin: 30px 0 50px;
     }
 
     .modal_main {
@@ -693,6 +744,8 @@ input {
         padding: 16px;
         border-radius: 16px;
         background: var(--main-color-3-b-363-f, #3B363F);
+        width: 335px;
+        margin-top: 30px;
 
         .modal_block {
             width: 100%;
@@ -730,7 +783,8 @@ input {
     }
 
     .main_btn {
-        width: 100%;
+        width: 100% !important;
+        margin-left: 0 !important;
     }
 }
 
@@ -1358,8 +1412,185 @@ input {
     }
 }
 
-.daterangepicker {
-    color: black;
+.date_range_picker {
+    .vdpr-datepicker input[type="text"] {
+        display: none;
+    }
+
+    .vdpr-datepicker__calendar-dialog {
+        border-radius: 6px;
+        box-shadow: 0px 4px 8px 0px rgba(5, 27, 68, 0.08);
+        background-color: #fff;
+        position: absolute;
+        margin-top: 5px;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        z-index: 2;
+        overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .vdpr-datepicker__calendar-button-helper {
+        width: auto;
+        padding: 16px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .vdpr-datepicker__button-default {
+        background: transparent;
+        border: none;
+        color: #696F8C;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+        padding: 4px 20px;
+        margin: 0;
+        text-align: left;
+    }
+    
+    .vdpr-datepicker__calendar {
+        width: 290px;
+    }
+
+    .vdpr-datepicker__calendar-control {
+        padding: 12px;
+    }
+
+    .vdpr-datepicker__calendar-control-prev,
+    .vdpr-datepicker__calendar-control-next {
+        border-radius: 4px;
+        border: 1px solid #D8DAE5;
+        background: #FFF;
+        position: relative;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .vdpr-datepicker__calendar-month-year {
+        text-transform: none;
+        text-align: center;
+        color: #051B44;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+    }
+
+    .vdpr-datepicker__calendar-table {
+        border-spacing: 0;
+        padding: 12px;
+        margin-bottom: 64px;
+    }
+
+    .vdpr-datepicker__calendar-table th {
+        color: #8F95B2;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: "Inter", sans-serif;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: -0.2px;
+        width: 36px;
+        padding: 0px 0px 8px;
+    }
+
+    .vdpr-datepicker__calendar-table td {
+        width: 36px;
+        height: 32px;
+        text-align: center;
+        color: #051B44;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+        background: transparent;
+    }
+
+    .vdpr-datepicker__calendar-table .faded {
+        color: #8F95B2;
+    }
+
+    .vdpr-datepicker__calendar-table .highlighted {
+        background: #E9F1FF;
+        color: #06F;
+    }
+    
+
+    .vdpr-datepicker__calendar-input-wrapper {
+        display: none;
+        width: 0;
+    }
+
+    .vdpr-datepicker__calendar-actions {
+        width: 0;
+    }
+
+    .vdpr-datepicker__button-reset {
+        position: absolute;
+        padding: 0;
+        bottom: 12px;
+        left: 149px;
+        width: auto;
+        border-radius: 4px;
+        border: 1px solid #D8DAE5;
+        background: #FFF;
+        width: 108px;
+        height: 40px;
+        color: #696F8C;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+    }
+
+    .vdpr-datepicker__button-submit {
+        padding: 0;
+        width: 99px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background: #06F;
+        border: none;
+        color: #FFF;
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: -0.5px;
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+    }
 }
 
 .history {
@@ -1381,5 +1612,352 @@ input {
             line-height: 135%;
             letter-spacing: 0.4px;
         }
+
+        .time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            span {
+                color: #C7FF24;
+                font-family: "Rubik", sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+    }
+
+    .statistics {
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        margin-bottom: 25px;
+        justify-content: space-between;
+    }
+
+    .statistics_list {
+        padding: 0px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 25px;
+
+        .statistics_item {
+            width: calc(50% - 4px);
+            border-radius: 8px;
+            background: #3B363F;
+            padding: 10px 8px 10px 12px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 3px;
+                height: 100%;
+            }
+
+            .amount {
+                color: #FFF;
+                font-family: "Rubik", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+                margin-bottom: 8px;
+            }
+
+            .contition {
+                color: #A6A4B4;
+                font-family: "Rubik", sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            .protsent {
+                color: #A6A4B4;
+                font-family: "Rubik", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+            }
+        }
+
+        .statistics_item.green::before {
+            background: #00BF8E;
+        }
+
+        .statistics_item.red::before {
+            background: #F34B47;
+        }
+
+        .statistics_item.yellow::before {
+            background: #F4B52B;
+        }
+
+        .statistics_item.blue::before {
+            background: #2C4A9B;
+        }
+    }
+
+    .main_line {
+        border-radius: 10px;
+        background: #312C35;
+        height: 1px;
+        width: calc(100% - 48px);
+        margin: 0 auto 25px;
+    }
+}
+
+.select_currency {
+    position: relative;
+
+    .select_currency_button {
+        border-radius: 12px;
+        border: 1px solid #A6A4B4;
+        background: #262329;
+        padding: 16px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 135%;
+        }
+    }
+
+    .currency_lists {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 12px;
+        margin-top: 6px;
+
+        button {
+            width: 100%;
+            text-align: left;
+            color: black;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 135%;
+            padding: 4px 12px;
+
+            &:hover {
+                background: rgba(214, 214, 214, 0.407);
+            }
+        }
+    }
+}
+
+.wallet {
+
+    .add_account_wrapper {
+        background: #1B1B1B;
+        padding-bottom: 24px;
+    }
+
+    .add_account {
+        border-radius: 16px;
+        background: #262329;
+        padding: 24px;
+
+        .title {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 135%;
+            letter-spacing: 0.4px;
+            margin-bottom: 25px;
+        }
+
+        .main_btn {
+            margin-top: 25px;
+            width: 100%;
+        }
+    }
+
+    .account_wrapper {
+        background: #1B1B1B;
+    }
+    
+    .accounts {
+        padding-top: 24px;
+        border-radius: 16px 16px 0 0;
+        background: #262329;
+    }
+    
+    .account {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 16px;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 16px;
+        background: #3B363F;
+        box-shadow: 0px 4px 25px 0px rgba(19, 1, 56, 0.07);
+        width: calc(100% - 48px);
+        margin: 0 auto 25px;
+
+        .currency {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .amount {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+    }
+
+    .main_btn {
+        width: calc(100% - 48px);
+        margin: 0 auto;
+    }
+}
+
+.wallet_save {
+    padding: 24px 0;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+
+    .title {
+        color: #FFF;
+        font-family: "Rubik", sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 135%;
+        letter-spacing: 0.4px;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .input {
+        border-radius: 12px;
+        border: 1px solid #A6A4B4;
+        background: #262329;
+        width: calc(100% - 48px);
+        margin: 32px auto 20px;
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 135%;
+        }
+
+        input {
+            width: 50%;
+            text-align: right;
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.36px;
+        }
+    }
+
+    .user {
+        border-radius: 12px;
+        border: 1px solid #A6A4B4;
+        background: #262329;
+        width: calc(100% - 48px);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        gap: 8px;
+
+        .name {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 135%;
+            margin-bottom: 2px;
+        }
+
+        .phone {
+            color: #A6A4B4;
+            font-family: "Rubik", sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+
+    .main_btn {
+        width: calc(100% - 48px);
+        margin-left: 24px;
+    }
+}
+
+.payment_page {
+    padding: 24px 0;
+
+    .title {
+        color: #FFF;
+        font-family: "Rubik", sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 135%;
+        letter-spacing: 0.4px;
+        text-align: center;
+        margin-bottom: 32px;
     }
 }

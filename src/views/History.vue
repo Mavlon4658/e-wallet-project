@@ -2,14 +2,26 @@
     <div class="history">
         <div class="history_head">
             <div class="title">История</div>
-            <div class="time">
-                8 мая - 12 июня
-                <img src="@/assets/images/calendar_icon.svg" alt="">
-            </div>
             <DateRangePicker />
         </div>
         <WalletList />
         <Payment />
+        <div class="statistics">
+            <img src="@/assets/images/statistic_1.svg" alt="">
+            <img src="@/assets/images/statistic_2.svg" alt="">
+            <img src="@/assets/images/statistic_3.svg" alt="">
+            <img src="@/assets/images/statistic_4.svg" alt="">
+        </div>
+        <div class="statistics_list">
+            <div v-for="(item, idx) in statistics_list" :key="idx" :class="`statistics_item ${item.class}`">
+                <div>
+                    <div class="amount">{{item.amount}}</div>
+                    <div class="contition">{{item.condition}}</div>
+                </div>
+                <div class="protsent">{{item.protsent}}</div>
+            </div>
+        </div>
+        <div class="main_line"></div>
         <Transactions />
     </div>
 </template>
@@ -28,6 +40,16 @@ export default {
         Transactions,
         DateRangePicker
     },
+    data () {
+        return {
+            statistics_list: [
+                {amount: '$159.45', condition: 'Пополнения', protsent: '62%', class: 'green'},
+                {amount: '$74.62', condition: 'Выводы', protsent: '12%', class: 'red'},
+                {amount: '$29.32', condition: 'Платежи', protsent: '20%', class: 'yellow'},
+                {amount: '$5.00', condition: 'Прочее', protsent: '6%', class: 'blue'},
+            ]
+        }
+    }
 }
 </script>
 

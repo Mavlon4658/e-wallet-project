@@ -1,20 +1,20 @@
 <template>
-    <div>
-        <h1> {{dateRange}} </h1>
+    <div class="date_range_picker">
+        <button class="time" @click="openDatePicker()">
+            <span>{{date_picker.start}} - {{date_picker.end}}</span>
+            <img src="@/assets/images/calendar_icon.svg" alt="">
+        </button>
         <DatePicker
-            v-model="dateRange"
-            :showStartDate="true"
-            :showEndDate="true"
             :showHelperButtons="showHelperButtons"
             :helperButtons="helperButtons"
+            :options="pickerOptions"
             @date-applied="selectData"
         />
-        <p>Start Date: {{ startDate }}</p>
-        <p>End Date: {{ endDate }}</p>
     </div>
 </template>
 
 <script>
+import moment from 'moment'
 import DatePicker from 'vue-time-date-range-picker'
 import "vue-time-date-range-picker/dist/vdprDatePicker.min.css"
 
@@ -24,56 +24,88 @@ export default {
     },
     data () {
         return {
-        dateRange: null,
-        startDate: null,
-        endDate: null,
-        dateInput: {
-            placeholder: "Select Date",
-        },
-        showHelperButtons: true,
-        helperButtons: [
-            {
-                name: "Last 7 days",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 02 23:59"),
+            date_picker: {
+                start: '8 мая',
+                end: '12 июня',
             },
-            {
-                name: "Last 14 days",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 03 15:00"),
-            },
-            {
-                name: "Last 30 days",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 15 00:00"),
-            },
-            {
-                name: "Last 3 months",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 15 00:00"),
-            },
-            {
-                name: "Last 12 months",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 15 00:00"),
-            },
-            {
-                name: "Select Time",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 15 00:00"),
-            },
-            {
-                name: "Custom",
-                from: new Date("2021 09 01 00:00"),
-                to: new Date("2021 09 15 00:00"),
-            },
-        ],
+            showHelperButtons: true,
+            helperButtons: [
+                {
+                    name: "Last 7 days",
+                    from: new Date(new Date()).setDate((new Date()).getDate() - 7),
+                    to: new Date(),
+                },
+                {
+                    name: "Last 14 days",
+                    from: new Date(new Date()).setDate((new Date()).getDate() - 14),
+                    to: new Date(),
+                },
+                {
+                    name: "Last 30 days",
+                    from: new Date(new Date()).setDate((new Date()).getDate() - 30),
+                    to: new Date(),
+                },
+                {
+                    name: "Last 3 months",
+                    from: new Date(new Date()).setMonth((new Date()).getMonth() - 3),
+                    to: new Date(),
+                },
+                {
+                    name: "Last 12 months",
+                    from: new Date(new Date()).setMonth((new Date()).getMonth() - 12),
+                    to: new Date(),
+                },
+                {
+                    name: "Select Time",
+                    from: new Date("2021 09 01 00:00"),
+                    to: new Date("2021 09 15 00:00"),
+                },
+                {
+                    name: "Custom",
+                    from: new Date("2021 09 01 00:00"),
+                    to: new Date("2021 09 15 00:00"),
+                },
+            ],
         }
     },
     methods: {
         selectData (start, end) {
-            console.log(start, end);
+            const russianMonths = [
+                "январь",
+                "февраль",
+                "март",
+                "апрель",
+                "май",
+                "июнь",
+                "июль",
+                "август",
+                "сентябрь",
+                "октябрь",
+                "ноябрь",
+                "декабрь"
+            ];
+            this.date_picker.start = +moment(start).format('DD') + ' ' + russianMonths[+moment(start).format('MM') - 1];
+            this.date_picker.end = +moment(end).format('DD') + ' ' + russianMonths[+moment(end).format('MM') - 1];
+        },
+        openDatePicker () {
+            $('.vdpr-datepicker input[type="text"]').click();
         }
+    },
+    mounted () {
+        let prev = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
+                        <path d="M11.625 4.375H0.375" stroke="#051B44" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.125 0.625L0.375 4.375L4.125 8.125" stroke="#051B44" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`;
+        let next = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
+                        <path d="M0.375 4.375H11.625" stroke="#051B44" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.875 0.625L11.625 4.375L7.875 8.125" stroke="#051B44" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>`
+        $('.vdpr-datepicker__calendar-control-prev').append(prev);
+        $('.vdpr-datepicker__calendar-control-next').append(next);
+        $('.vdpr-datepicker__button-reset').text('Cancel');
+        $('.vdpr-datepicker__calendar-table th').each(function (idx, el) {
+            $(el).text($(el).text()[0]);
+        });
     }
 }
 </script>

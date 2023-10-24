@@ -6,6 +6,9 @@ import LogIn from '../auth/LogIn.vue'
 import HomeDefault from '../components/HomeDefault.vue'
 import Home from '@/views/Home.vue'
 import History from '@/views/History.vue'
+import Wallet from '@/views/Wallet.vue'
+import WalletSave from '@/views/WalletSave.vue'
+import Payment from '@/views/Payment.vue'
 
 
 const routes = [
@@ -15,7 +18,10 @@ const routes = [
     component: HomeDefault,
     children: [
         {path: '/', name: "Home", component: Home},
-        {path: 'history', name: "History", component: History}
+        {path: 'history', name: "History", component: History},
+        {path: 'wallet', name: "Wallet", component: Wallet},
+        {path: 'wallet/save', name: "WalletSave", component: WalletSave},
+        {path: 'payment', name: "Payment", component: Payment},
     ]
   },
   {
