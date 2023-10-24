@@ -7,8 +7,15 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "jquery": "^3.7.1",
+    "maska": "^2.1.10",
+    "moment": "^2.29.4",
+    "sass": "^1.69.4",
+    "sass-loader": "^13.3.2",
+    "swiper": "^11.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-time-date-range-picker": "^2.1.2",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
