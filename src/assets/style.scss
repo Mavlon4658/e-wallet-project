@@ -2174,13 +2174,17 @@ input {
     }
 
     label {
+        border-image-source:url("../assets/images/payment_border.svg");
+        border-image-slice: 2;
+        border-image-repeat: round;
+        border-style: dashed;
+        border-image-width: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         gap: 4px;
         border-radius: 20px;
-        border: 1px dashed #3B363F;
         height: 495px;
         width: calc(100% - 48px);
         margin: 32px auto;
