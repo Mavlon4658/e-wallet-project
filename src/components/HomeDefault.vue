@@ -5,7 +5,7 @@
             <div class="main_app_item main_app_left">
                 <router-view></router-view>
             </div>
-            <div class="main_app_item">
+            <div class="main_app_item main_app_right">
                 <Settings />
             </div>
         </div>

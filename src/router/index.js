@@ -9,6 +9,7 @@ import History from '@/views/History.vue'
 import Wallet from '@/views/Wallet.vue'
 import WalletSave from '@/views/WalletSave.vue'
 import Payment from '@/views/Payment.vue'
+import Settings from '@/views/Settings.vue'
 
 
 const routes = [
@@ -22,6 +23,7 @@ const routes = [
         {path: 'wallet', name: "Wallet", component: Wallet},
         {path: 'wallet/save', name: "WalletSave", component: WalletSave},
         {path: 'payment', name: "Payment", component: Payment},
+        {path: 'settings', name: "Settings", component: Settings},
     ]
   },
   {

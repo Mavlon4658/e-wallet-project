@@ -808,6 +808,28 @@ input {
         }
     }
 
+    .account_name{
+        display: none;
+        text-align: center;
+        h2{
+            color: var(--main-color-ffffff, #FFF);
+            font-family: 'Rubik',sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-bottom: 4px;
+        }
+        p{
+            color: var(--main-color-a-6-a-4-b-4, #A6A4B4);
+            font-family: 'Rubik',sans-serif;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+
     nav {
         display: flex;
         align-items: center;
@@ -896,7 +918,30 @@ input {
             }
         }
 
+        .nav_link_account {
+            .link {
+                &:hover {
+                    svg {
+                        path {
+                            fill: none;
+                            stroke: #C7ff24;
+                        }
+                    }
+                }
+            }
+        }
+
         .nav_link_payment.active {
+            .link {
+                svg {
+                    path {
+                        fill: none;
+                        stroke: #C7ff24;
+                    }
+                }
+            }
+        }
+        .nav_link_account.active {
             .link {
                 svg {
                     path {
@@ -1225,6 +1270,7 @@ input {
 
         .qr_main_img {
             width: 100%;
+            height: 100%;
         }
 
         .qr_avatar {
@@ -1276,7 +1322,7 @@ input {
     border-radius: 16px;
     background: var(--main-color-262329, #262329);
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
 
     .qrpay_text {
@@ -1308,9 +1354,13 @@ input {
         width: 186px;
         height: 100%;
         position: relative;
-        // border: 1px solid red;
+        border: 1px solid red;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
 
         .prpay_bg_in{
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
             width: 186px;
             height: 100%;
             background: linear-gradient(90deg, #262329 2.46%, rgba(38, 35, 41, 0.09) 466.2%) !important;
@@ -1324,7 +1374,10 @@ input {
             width: 145px;
 
             .main_img {
+                height: 200px;
                 height: 100%;
+                border-top-right-radius: 16px;
+                border-bottom-right-radius: 16px;
             }
 
             .avatar_icon {
@@ -2241,3 +2294,5 @@ input {
         margin: 0 auto;
     }
 }
+
+@import 'responsive';

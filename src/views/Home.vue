@@ -2,7 +2,6 @@
     <div class="home">
         <WalletList />
         <Payment />
-        <div class="title">Транкзации</div>
         <Transactions />
     </div>
 </template>

@@ -1,0 +1,194 @@
+@media (max-width: 1060px){
+    .header{
+        nav{
+            .nav_item{
+                gap: 15px;
+            }
+        }
+    }
+    // #QRPay{
+
+    // }
+}
+
+@media (min-width: 920px){
+    .header{
+        nav {
+            .nav_link_account{
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 920px){
+    .header{
+        margin: 10px 20px 25px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .account_name{
+            display: block;
+        }
+        nav{
+            height: auto;
+            padding: 18px 20px 40px 20px;
+            width: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 5;
+            border-radius: 16px;
+            border: 1px solid #312C35;
+            background: var(--main-color-262329, #262329);
+            box-shadow: 0px 0px 35px 0px rgba(27, 27, 27, 0.05);
+            .nav_link{
+                .link{
+                    flex-direction: column;
+                    gap: 8px;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: 0.2px;
+                }
+            }
+            .nav_link.active::after{
+                top: -18px;
+                width: 100%;
+                border-radius: 0 0 4px 4px;
+            }
+            // .nav_link_payment{
+            //     display: flex;
+            //     align-items: center;
+            //     justify-content: center;
+            //     border-radius: 50%;
+            //     width: 64px;
+            //     height: 64px;
+            //     background: var(--main-color-c-7-ff-24, #C7FF24);
+            // }
+        }
+        .header_profile,
+        .notification{
+            height: auto;
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+    .home,
+    .wallet,
+    .history,
+    .payment_page,
+    #profile{
+        margin-bottom: 135px;
+    }
+    .main_app{
+        .main_app_container{
+            .main_app_item{
+                position: absolute;
+                width: calc(100%);
+            }
+            .main_app_left{
+                background-color: transparent;
+            }
+        }
+    }
+    .swiper_wrapper{
+        .swiper_button{
+            display: none;
+        }
+    }
+    .main_container{
+        padding: 0;
+    }
+    .home{
+        padding: 0;
+    }
+    .transaction_wrapper{
+        margin: 0 20px;
+        border-radius: 16px;
+        padding: 16px;
+        background: var(--main-color-262329, #262329);
+        .title{
+            padding: 0 0 20px 0;
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.36px;
+        }
+        .transactions{
+            padding: 0;
+            .text {
+                .text_bottom {
+                    .time{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .wallet{
+        .accounts{
+            background-color: transparent;
+            .currency{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .auth_wrapper{
+        .auth_bg{
+            display: none;
+        }
+        .auth_content{
+            border: none;
+            width: calc(100%);
+            .auth_in{
+                .title{
+                    margin: 0 auto 72px;
+                }
+            }
+        }
+    }
+
+    .main_app_right{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+
+}
+@media (max-width: 576px){
+    .payment{
+        padding: 25px 16px;
+        button{
+            padding: 12px ;
+            border-radius: 12px;
+            gap: 4px;
+            flex-direction: column;
+            font-size: 14px
+        }
+    }
+    .auth_wrapper{
+        height: auto;
+        padding: 32px 0 0 0;
+        .auth_content{
+            padding: 20px;
+            .log_in{
+                .main_btn{
+                    width: 100%;
+                }
+            }
+            .register{
+                width: 100%;
+                .step_head{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

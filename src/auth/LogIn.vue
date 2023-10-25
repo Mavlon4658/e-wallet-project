@@ -1,9 +1,11 @@
 <template>
     <div class="log_in">
-        <div :class="`log_in_wrapper ${$store.state.send_confirm_code ? 'd-none' : ''}`">
-            <div class="title">Вход в личный кабинет</div>
-            <input-mask v-model:phone="phone" />
-            <div class="text">Вы получите SMS-сообщение с кодом подтверждения для входа в личный кабинет</div>
+        <div :class="`log_in_wrapper log_in_wrapper_media ${$store.state.send_confirm_code ? 'd-none' : ''}`">
+            <div>
+                <div class="title">Вход в личный кабинет</div>
+                <input-mask v-model:phone="phone" />
+                <div class="text">Вы получите SMS-сообщение с кодом подтверждения для входа в личный кабинет</div>
+            </div>
             <Button @btnClick="sendData" title="Отправить код"/>
         </div>
 
