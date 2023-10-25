@@ -815,6 +815,7 @@ input {
         width: 100%;
         height: 76px;
         background: var(--main-color-262329, #262329);
+        border-radius: 16px;
 
         .nav_item {
             height: 100%;
@@ -849,10 +850,8 @@ input {
                 font-weight: 500;
                 line-height: normal;
                 transition: .2s linear;
-            }
 
-            &:hover {
-                .link {
+                &:hover {
                     svg {
                         path {
                             fill: #C7FF24;
@@ -860,6 +859,7 @@ input {
                     }
                 }
             }
+
         }
 
         .nav_link.active {

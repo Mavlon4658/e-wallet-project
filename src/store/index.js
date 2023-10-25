@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    title: "Salom hammaga",
     send_confirm_code: false,
     phone: ''
   },
