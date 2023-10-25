@@ -1960,4 +1960,72 @@ input {
         text-align: center;
         margin-bottom: 32px;
     }
+
+    #select_file {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+        border-radius: 20px;
+        border: 1px dashed #3B363F;
+        height: 495px;
+        width: calc(100% - 48px);
+        margin: 32px auto;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 38px;
+            display: block;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+            color: #A6A4B4;
+            text-align: center;
+            font-family: "Rubik", sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            span {
+                color: #FFF;
+                text-align: center;
+                font-family: "Rubik", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+            }
+        }
+
+        .bg_img {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+
+    label.active {
+        border: 1px solid #868587;
+    }
+
+    .main_btn {
+        width: calc(100% - 48px);
+        margin: 0 auto;
+    }
 }
