@@ -30,41 +30,42 @@
                     <p>12.04.2023</p>
                 </div>
                 </div>
-                <router-link class="profile_btn" to="/">
-                Выйти из аккаунта
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                >
-                    <path
-                    opacity="0.4"
-                    d="M10.2621 4.04211V3.34236C10.2621 1.81611 9.0246 0.578613 7.49835 0.578613H3.8421C2.3166 0.578613 1.0791 1.81611 1.0791 3.34236V11.6899C1.0791 13.2161 2.3166 14.4536 3.8421 14.4536H7.50585C9.0276 14.4536 10.2621 13.2199 10.2621 11.6981V10.9909"
-                    stroke="white"
-                    stroke-width="1.125"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    />
-                    <path
-                    d="M15.3569 7.51599H6.32617"
-                    stroke="white"
-                    stroke-width="1.125"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    />
-                    <path
-                    d="M13.1611 5.32971L15.3571 7.51596L13.1611 9.70296"
-                    stroke="white"
-                    stroke-width="1.125"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    />
-                </svg>
-                </router-link>
+                <button @click="logAout()" class="profile_btn">
+                    Выйти из аккаунта
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                    >
+                        <path
+                        opacity="0.4"
+                        d="M10.2621 4.04211V3.34236C10.2621 1.81611 9.0246 0.578613 7.49835 0.578613H3.8421C2.3166 0.578613 1.0791 1.81611 1.0791 3.34236V11.6899C1.0791 13.2161 2.3166 14.4536 3.8421 14.4536H7.50585C9.0276 14.4536 10.2621 13.2199 10.2621 11.6981V10.9909"
+                        stroke="white"
+                        stroke-width="1.125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        />
+                        <path
+                        d="M15.3569 7.51599H6.32617"
+                        stroke="white"
+                        stroke-width="1.125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        />
+                        <path
+                        d="M13.1611 5.32971L15.3571 7.51596L13.1611 9.70296"
+                        stroke="white"
+                        stroke-width="1.125"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
             </div>
         </div>
+
         <div id="qr_code">
             <div class="qr_img">
                 <img class="qr_main_img" src="@/assets/images/qr_code.png" alt="">
@@ -83,6 +84,7 @@
                 </button>
             </div>
         </div>
+
         <div id="QRPay">
             <div class="qrpay_text">
                 <h3>Платите с помощью QR-code</h3>
@@ -90,6 +92,7 @@
             </div>
             <div class="qrpay_img">
                 <div class="qrpay_bg">
+                    <div class="prpay_bg_in"></div>
                     <div class="main_images">
                         <img class="main_img" src="@/assets/images/qr_pay_qr.png" alt="">
                         <img class="avatar_icon" src="@/assets/images/avatar.svg" alt="">
@@ -105,6 +108,11 @@
 <script>
 export default {
     name: "Settings",
+    methods: {
+        logAout () {
+            this.$router.push({name: 'AuthIn'})
+        }
+    }
 };
 </script>
 
