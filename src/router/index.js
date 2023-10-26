@@ -10,6 +10,7 @@ import Wallet from '@/views/Wallet.vue'
 import WalletSave from '@/views/WalletSave.vue'
 import Payment from '@/views/Payment.vue'
 import Settings from '@/views/Settings.vue'
+import Notifications from '@/views/Notifications.vue'
 
 
 const routes = [
@@ -24,6 +25,7 @@ const routes = [
         {path: 'wallet/save', name: "WalletSave", component: WalletSave},
         {path: 'payment', name: "Payment", component: Payment},
         {path: 'settings', name: "Settings", component: Settings},
+        {path: 'notifications', name: "Notifications", component: Notifications},
     ]
   },
   {

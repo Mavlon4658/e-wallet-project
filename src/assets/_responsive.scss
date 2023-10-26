@@ -1,37 +1,40 @@
-@media (max-width: 1060px){
-    .header{
-        nav{
-            .nav_item{
+@media (max-width: 1060px) {
+    .header {
+        nav {
+            .nav_item {
                 gap: 15px;
             }
         }
     }
+
     // #QRPay{
 
     // }
 }
 
-@media (min-width: 920px){
-    .header{
+@media (min-width: 920px) {
+    .header {
         nav {
-            .nav_link_account{
+            .nav_link_account {
                 display: none;
             }
         }
     }
 }
 
-@media (max-width: 920px){
-    .header{
+@media (max-width: 920px) {
+    .header {
         margin: 10px 20px 25px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .account_name{
+
+        .account_name {
             display: block;
         }
-        nav{
-            height: auto;
+
+        nav {
+            height: 106px;
             padding: 18px 20px 40px 20px;
             width: 100%;
             position: fixed;
@@ -42,8 +45,9 @@
             border: 1px solid #312C35;
             background: var(--main-color-262329, #262329);
             box-shadow: 0px 0px 35px 0px rgba(27, 27, 27, 0.05);
-            .nav_link{
-                .link{
+
+            .nav_link {
+                .link {
                     flex-direction: column;
                     gap: 8px;
                     font-size: 10px;
@@ -53,63 +57,253 @@
                     letter-spacing: 0.2px;
                 }
             }
-            .nav_link.active::after{
+
+            .nav_link.active::after {
                 top: -18px;
                 width: 100%;
                 border-radius: 0 0 4px 4px;
             }
-            // .nav_link_payment{
-            //     display: flex;
-            //     align-items: center;
-            //     justify-content: center;
-            //     border-radius: 50%;
-            //     width: 64px;
-            //     height: 64px;
-            //     background: var(--main-color-c-7-ff-24, #C7FF24);
-            // }
+            .nav_link_payment.active::after{
+                display: none;
+            }
+            .nav_link_payment {
+                transform: translateY(-37%);    
+                .link {
+                    svg {
+                        path {
+                            fill: none;
+                            stroke: #000;
+                        }
+                    }
+                    &:hover {
+                        svg {
+                            path {
+                                fill: none;
+                                stroke: #000;
+                            }
+                        }
+                    }
+                    span{
+                        z-index: 3;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: var(--main-color-c-7-ff-24, #C7FF24);
+                        width: 64px;
+                        height: 64px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .nav_link_payment.active {
+                .link {
+                    svg {
+                        path {
+                            fill: none;
+                            stroke: #000;
+                        }
+                    }
+                }
+            }
+
+
         }
+
         .header_profile,
-        .notification{
+        .notification {
             height: auto;
             padding: 0;
             background-color: transparent;
         }
     }
+    
     .home,
     .wallet,
     .history,
     .payment_page,
-    #profile{
+    #profile {
         margin-bottom: 135px;
     }
-    .main_app{
-        .main_app_container{
-            .main_app_item{
+
+    .notifictaion_list {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #262329;
+        width: 100%;
+    
+        .notification_head {
+            color: #FFF;
+            font-family: "Rubik", sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.36px;
+            padding: 0 0 18px 0;
+            text-align: center;
+            // border-bottom: 1px solid #312C35;
+        }
+    
+        .notifictaion_content_wrappert {
+            padding: 25px 24px;
+    
+            .notification_content {
+                // padding-right: 24px;
+                // overflow-y: scroll;
+                
+                // &::-webkit-scrollbar {
+                //     width: 4px;
+                // }
+    
+                // &::-webkit-scrollbar-track {
+                //     border-radius: 4px;
+                //     background: #312C35;
+                // }
+    
+                // &::-webkit-scrollbar-thumb {
+                //     border-radius: 4px;
+                //     background: rgba(166, 164, 180, 0.5);
+                // }
+    
+                // &::-webkit-scrollbar-thumb:hover {
+                //     background: rgba(166, 164, 180, 1);
+                // }
+    
+                .notifictaion_item {
+                    text-align: left;
+    
+                    .top {
+                        color: #A6A4B4;
+                        font-family: "Rubik", sans-serif;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 135%;
+                        margin-bottom: 14px;
+                    }
+    
+                    .bottom {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 12px;
+    
+                        .right {
+                            width: 100%;
+                            .right_title {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 6.5px;
+    
+                                .title {
+                                    color: #FFF;
+                                    font-family: "Rubik", sans-serif;
+                                    font-size: 18px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;
+                                    letter-spacing: 0.36px;
+                                }
+    
+                                .time {
+                                    color: #A6A4B4;
+                                    text-align: right;
+                                    font-family: "Rubik", sans-serif;
+                                    font-size: 16px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 135%;
+                                }
+                            }
+    
+                            .content {
+                                color: #A6A4B4;
+                                font-family: "Rubik", sans-serif;
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 135%;
+                                padding-bottom: 29px;
+                                width: 100%;
+                                display: block;
+                                position: relative;
+    
+                                span {
+                                    color: #FFF;
+                                }
+    
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    bottom: 14px;
+                                    width: 100%;
+                                    height: 1px;
+                                    border-radius: 10px;
+                                    background: #312C35;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .notification_foot {
+            padding: 18px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid #312C35;
+    
+            span {
+                color: #A6A4B4;
+                font-family: "Rubik", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+            }
+        }
+    } 
+
+    .main_app {
+        .main_app_container {
+            .main_app_item {
                 position: absolute;
                 width: calc(100%);
             }
-            .main_app_left{
+
+            .main_app_left {
                 background-color: transparent;
             }
         }
     }
-    .swiper_wrapper{
-        .swiper_button{
+
+    .swiper_wrapper {
+        .swiper_button {
             display: none;
         }
     }
-    .main_container{
+
+    .main_container {
         padding: 0;
     }
-    .home{
+
+    .home {
         padding: 0;
     }
-    .transaction_wrapper{
+
+    .transaction_wrapper {
         margin: 0 20px;
         border-radius: 16px;
         padding: 16px;
         background: var(--main-color-262329, #262329);
-        .title{
+
+        .title {
             padding: 0 0 20px 0;
             color: #FFF;
             font-family: "Rubik", sans-serif;
@@ -119,73 +313,173 @@
             line-height: normal;
             letter-spacing: 0.36px;
         }
-        .transactions{
+
+        .transactions {
             padding: 0;
+
             .text {
                 .text_bottom {
-                    .time{
+                    .time {
                         font-size: 12px;
                     }
                 }
             }
         }
     }
-    .wallet{
-        .accounts{
+
+    .wallet {
+        .accounts {
             background-color: transparent;
-            .currency{
+
+            .currency {
                 font-size: 12px;
             }
         }
     }
 
-    .auth_wrapper{
-        .auth_bg{
+    .auth_wrapper {
+        .auth_bg {
             display: none;
         }
-        .auth_content{
+
+        .auth_content {
             border: none;
             width: calc(100%);
-            .auth_in{
-                .title{
+            .log_in {
+                .identifiction{
+                    .link_text_wrapper{
+                        max-width: 100%;
+                        button{
+                            width: 100%;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+            }
+
+            .auth_in {
+                .title {
                     margin: 0 auto 72px;
+                }
+            }
+            .register{
+                .step{
+                    .inputs{
+                        .phone_input_wrapper{
+                            max-width: 100%;
+                        }
+                    }
+                }
+                .step_2 {
+                    .identifiction_title{
+                        max-width: 100%;
+                    }
+                    .identifiction_description{
+                        max-width: 100%;
+                    }
+                    .confirm_inputs{
+                        max-width: 100%;
+                    }
+                    .link_text_wrapper{
+                        max-width: 100%;
+                        button{
+                            width: 100%;
+                            justify-content: space-between;
+                        }
+                    }
+                }
+                .step_3 {
+                    .identifiction_title{
+                        max-width: 100%;
+                    }
+                    .identifiction_description{
+                        max-width: 100%;
+                    }
+                    .confirm_inputs{
+                        max-width: 100%;
+                    }
                 }
             }
         }
     }
 
-    .main_app_right{
+    .main_app_right {
         display: none;
     }
+
+    #profile {
+        background-color: transparent;
+        .profile_header {
+            .profile_avatar{
+                width: 120px;
+                height: 120px;
+            }
+            .profile_name{
+                h3{
+                    max-width: 150px;
+                }
+            }
+        }
+    }
+
+    #QRPay{
+        display: none;
+    }
+    #qr_code{
+        display: none;
+    }
+    // .history{
+    //     .statistics{
+    //         justify-content: start;
+    //         gap: 2px;
+    //         .one{
+    //             width: 35%;
+    //         }
+    //         .two{
+    //             width: 20%;
+    //         }
+    //         .three{
+    //             width: 45%;
+    //         }
+    //         .four{
+    //             width: 20%;
+    //         }
+    //     }
+    // }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {}
 
-}
-@media (max-width: 576px){
-    .payment{
+@media (max-width: 576px) {
+    .payment {
         padding: 25px 16px;
-        button{
-            padding: 12px ;
+
+        button {
+            padding: 12px;
             border-radius: 12px;
             gap: 4px;
             flex-direction: column;
             font-size: 14px
         }
     }
-    .auth_wrapper{
+
+    .auth_wrapper {
         height: auto;
         padding: 32px 0 0 0;
-        .auth_content{
+
+        .auth_content {
             padding: 20px;
-            .log_in{
-                .main_btn{
+
+            .log_in {
+                .main_btn {
                     width: 100%;
                 }
             }
-            .register{
+
+            .register {
                 width: 100%;
-                .step_head{
+
+                .step_head {
                     width: 100%;
                 }
             }

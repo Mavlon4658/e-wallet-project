@@ -7,10 +7,10 @@
         <WalletList />
         <Payment />
         <div class="statistics">
-            <img src="@/assets/images/statistic_1.svg" alt="">
-            <img src="@/assets/images/statistic_2.svg" alt="">
-            <img src="@/assets/images/statistic_3.svg" alt="">
-            <img src="@/assets/images/statistic_4.svg" alt="">
+            <img class="one" src="@/assets/images/statistic_1.svg" alt="">
+            <img class="two" src="@/assets/images/statistic_2.svg" alt="">
+            <img class="three" src="@/assets/images/statistic_3.svg" alt="">
+            <img class="four" src="@/assets/images/statistic_4.svg" alt="">
         </div>
         <div class="statistics_list">
             <div v-for="(item, idx) in statistics_list" :key="idx" :class="`statistics_item ${item.class}`">
