@@ -1,7 +1,7 @@
 <template>
     <div class="auth_wrapper">
         <div class="auth_content">
-            <div class="auth_title">
+            <div :class="`auth_title ${ $route.name !== 'AuthIn' ?'auth_title_mobile':''}`">
                 <img src="@/assets/images/logo.svg" alt="">
                 <span>E-Wallet</span>
             </div>

@@ -345,7 +345,16 @@
         .auth_content {
             border: none;
             width: calc(100%);
+            .auth_title_mobile{
+                display: none;
+            }
+            .auth_title{
+                padding-top: 32px;
+            }
             .log_in {
+                img{
+                    margin: 102px auto 46px;
+                }
                 .identifiction{
                     .link_text_wrapper{
                         max-width: 100%;
@@ -361,13 +370,32 @@
                 .title {
                     margin: 0 auto 72px;
                 }
+                .text{
+                    margin-bottom: 47px;
+                }
             }
             .register{
+                .step_head{
+                    margin: 16px 0 25px 0;
+                }
                 .step{
                     .inputs{
                         .phone_input_wrapper{
                             max-width: 100%;
+                            .phone_input{
+                                height: 52px;
+                            }
                         }
+                        .input_wrapper{
+                            input{
+                                height: 50px;
+                            }
+                        }
+                    }
+                }
+                .step_1{
+                    .inputs{
+                        margin-bottom: 99px;
                     }
                 }
                 .step_2 {
@@ -465,10 +493,10 @@
 
     .auth_wrapper {
         height: auto;
-        padding: 32px 0 0 0;
+        padding: 0;
 
         .auth_content {
-            padding: 20px;
+            padding: 0 20px;
 
             .log_in {
                 .main_btn {
