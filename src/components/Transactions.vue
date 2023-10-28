@@ -1,6 +1,6 @@
 <template>
     <div class="transaction_wrapper">
-        <div class="title">Транкзации</div>
+        <div class="title">{{title}}</div>
         <div class="transactions" v-for="(user, idx) in 6" :key="idx">
             <img src="@/assets/images/avatar.svg" alt="">
             <div class="text">
@@ -19,7 +19,13 @@
 
 <script>
 export default {
-    name: "Transactions"
+    name: "Transactions",
+    props: {
+        title: {
+            type: String,
+            default: ''
+        }
+    }
 }
 </script>
 

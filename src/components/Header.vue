@@ -1,14 +1,14 @@
 <template>
   <div class="main_container">
     <header class="header">
-      <router-link to="/" class="header_profile">
+      <router-link to="/" :class="`header_profile ${notification_open ? 'header_profile_active' : ''}`">
           <img src="@/assets/images/avatar.svg" alt="">
       </router-link>
-      <div class="account_name">
+      <div :class="`account_name ${notification_open ? 'account_name_active' : ''}`">
         <h2>Добро пожаловать, Дмитрий!</h2>
         <p>Хорошего дня</p>
       </div>
-      <nav>
+      <nav :class="notification_open ? 'nav_active' : ''">
         <ul class="nav_item">
           <li v-for="(item, idx) in navs" :key="idx" :class="`nav_link ${item.class} ${item.path == $route.name ? 'active' : ''}`">
             <router-link class="link" :to="{name: item.path}">
@@ -118,6 +118,15 @@
           },
         ],
         notification_open: false,
+      }
+    },
+    watch: {
+      notification_open () {
+        if (this.notification_open) {
+          $('body').addClass('active')
+        } else {
+          $('body').removeClass('active');
+        }
       }
     }
   }

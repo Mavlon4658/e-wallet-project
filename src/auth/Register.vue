@@ -1,6 +1,6 @@
 <template>
     <div class="register">
-        <div class="step_head">
+        <div :class="`step_head ${registre_step == 2 ? 'step_head_2' : ''}`">
             <div v-for="i in 3" :key="i" :class="`step_head_item ${i <= registre_step ? 'active' : ''}`"></div>
         </div>
 

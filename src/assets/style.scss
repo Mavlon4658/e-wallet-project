@@ -93,6 +93,7 @@ input {
         color: #CDB700;
     }
 }
+
 .phone_input_wrapper {
     position: relative;
     max-width: 335px;
@@ -1071,6 +1072,7 @@ input {
                                         font-style: normal;
                                         font-weight: 400;
                                         line-height: 135%;
+                                        opacity: 0.5;
                                     }
                                 }
 
@@ -1260,7 +1262,7 @@ input {
     gap: 25px;
     border-radius: 16px;
     padding: 24px;
-    background: var(--main-color-262329, #262329);
+    background: #262329;
 
     .qr_img {
         width: 120px;
@@ -1319,7 +1321,7 @@ input {
 #QRPay {
     margin-top: 24px;
     border-radius: 16px;
-    background: var(--main-color-262329, #262329);
+    background: #262329;
     display: flex;
     align-items: start;
     justify-content: space-between;
@@ -1353,7 +1355,6 @@ input {
         width: 186px;
         height: 100%;
         position: relative;
-        border: 1px solid red;
         border-top-right-radius: 16px;
         border-bottom-right-radius: 16px;
 
@@ -1377,6 +1378,7 @@ input {
                 height: 100%;
                 border-top-right-radius: 16px;
                 border-bottom-right-radius: 16px;
+                margin-bottom: -4px;
             }
 
             .avatar_icon {
@@ -1682,14 +1684,13 @@ input {
         box-shadow: 0px 4px 8px 0px rgba(5, 27, 68, 0.08);
         background-color: #fff;
         position: absolute;
-        margin-top: 5px;
+        margin-top: 20px;
         padding: 0;
         display: flex;
         flex-direction: row;
         z-index: 2;
         overflow: hidden;
-        left: 50%;
-        transform: translateX(-50%);
+        right: -24px
     }
 
     .vdpr-datepicker__calendar-button-helper {
@@ -1794,10 +1795,28 @@ input {
     }
 
     .vdpr-datepicker__calendar-table .highlighted {
-        background: #E9F1FF;
-        color: #06F;
+        background: #F7FFDE;
+        color: #A6A4B4;
+
     }
     
+    .vdpr-datepicker__calendar-table .highlighted_one {
+        border-radius: 4px;
+        background: #C7FF24;
+        color: #262329;
+    }
+
+    .vdpr-datepicker__calendar-table .highlighted_first {
+        border-radius: 4px 0 0 4px;
+        background: #C7FF24;
+        color: #262329;
+    }
+
+    .vdpr-datepicker__calendar-table .highlighted_last {
+        border-radius: 0 4px 4px 0;
+        background: #C7FF24;
+        color: #262329;
+    }
 
     .vdpr-datepicker__calendar-input-wrapper {
         display: none;
@@ -1806,22 +1825,23 @@ input {
 
     .vdpr-datepicker__calendar-actions {
         width: 0;
+        padding: 0;
     }
 
     .vdpr-datepicker__button-reset {
         position: absolute;
         padding: 0;
         bottom: 12px;
-        left: 149px;
+        left: 12px;
         width: auto;
-        border-radius: 4px;
-        border: 1px solid #D8DAE5;
+        border-radius: 8px;
+        border: 1px solid #C7FF24;
         background: #FFF;
         width: 108px;
         height: 40px;
-        color: #696F8C;
+        color: #A6A4B4;
         font-feature-settings: 'clig' off, 'liga' off;
-        font-family: "Inter", sans-serif;
+        font-family: "Rubik", sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
@@ -1836,17 +1856,15 @@ input {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 4px;
-        background: #06F;
+        border-radius: 8px;
+        background: #C7FF24;
         border: none;
-        color: #FFF;
-        font-feature-settings: 'clig' off, 'liga' off;
-        font-family: "Inter", sans-serif;
+        color: #262329;
+        font-family: "Rubik", sans-serif;
         font-size: 16px;
         font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-        letter-spacing: -0.5px;
+        font-weight: 500;
+        line-height: normal;
         position: absolute;
         right: 12px;
         bottom: 12px;
@@ -1895,6 +1913,14 @@ input {
         padding: 0 24px;
         margin-bottom: 25px;
         justify-content: space-between;
+
+        .statistics_img {
+            width: 100%;
+        }
+
+        .statistics_img_mobile {
+            display: none;
+        }
     }
 
     .statistics_list {
@@ -2005,26 +2031,43 @@ input {
     .currency_lists {
         display: flex;
         flex-direction: column;
-        background: white;
+        background: #262329;
         position: absolute;
         width: 100%;
         padding: 12px 0;
-        border-radius: 12px;
         margin-top: 6px;
+        border-radius: 12px;
+        border: 1px solid #A6A4B4;
+        z-index: 2;
 
         button {
             width: 100%;
             text-align: left;
-            color: black;
             font-family: "Rubik", sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 135%;
-            padding: 4px 12px;
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
 
             &:hover {
-                background: rgba(214, 214, 214, 0.407);
+                background: #3B363F;
+            }
+
+            svg {
+                display: none;
+            }
+        }
+
+        .currency_list_active {
+            background: #3B363F;
+
+            svg {
+                display: block;
             }
         }
     }
@@ -2051,6 +2094,10 @@ input {
             line-height: 135%;
             letter-spacing: 0.4px;
             margin-bottom: 25px;
+        }
+
+        .user_data {
+            display: none;
         }
 
         .main_btn {

@@ -1,7 +1,7 @@
 <template>
     <div class="swiper_wrapper">
         <swiper
-            :slides-per-view="2"
+            :slides-per-view="1.4"
             :space-between="16"
             :centeredSlides="true"
             :loop="true"
@@ -12,6 +12,11 @@
             :navigation="{
                 prevEl: prev,
                 nextEl: next,
+            }"
+            :breakpoints="{
+                920: {
+                    slidesPerView: 2
+                }
             }"
             :modules="modules"
             class="wallet_slider"

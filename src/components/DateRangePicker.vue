@@ -4,12 +4,12 @@
             <span>{{date_picker.start}} - {{date_picker.end}}</span>
             <img src="@/assets/images/calendar_icon.svg" alt="">
         </button>
-        <DatePicker
-            :showHelperButtons="showHelperButtons"
-            :helperButtons="helperButtons"
-            :options="pickerOptions"
-            @date-applied="selectData"
-        />
+        <div class="date_picker_wrapper">
+            <DatePicker
+                :options="pickerOptions"
+                @date-applied="selectData"
+            />
+        </div>
     </div>
 </template>
 
@@ -29,43 +29,6 @@ export default {
                 end: '12 июня',
             },
             showHelperButtons: true,
-            helperButtons: [
-                {
-                    name: "Last 7 days",
-                    from: new Date(new Date()).setDate((new Date()).getDate() - 7),
-                    to: new Date(),
-                },
-                {
-                    name: "Last 14 days",
-                    from: new Date(new Date()).setDate((new Date()).getDate() - 14),
-                    to: new Date(),
-                },
-                {
-                    name: "Last 30 days",
-                    from: new Date(new Date()).setDate((new Date()).getDate() - 30),
-                    to: new Date(),
-                },
-                {
-                    name: "Last 3 months",
-                    from: new Date(new Date()).setMonth((new Date()).getMonth() - 3),
-                    to: new Date(),
-                },
-                {
-                    name: "Last 12 months",
-                    from: new Date(new Date()).setMonth((new Date()).getMonth() - 12),
-                    to: new Date(),
-                },
-                {
-                    name: "Select Time",
-                    from: new Date("2021 09 01 00:00"),
-                    to: new Date("2021 09 15 00:00"),
-                },
-                {
-                    name: "Custom",
-                    from: new Date("2021 09 01 00:00"),
-                    to: new Date("2021 09 15 00:00"),
-                },
-            ],
         }
     },
     methods: {
@@ -89,6 +52,7 @@ export default {
         },
         openDatePicker () {
             $('.vdpr-datepicker input[type="text"]').click();
+            $('.date_picker_wrapper').addClass('active')
         }
     },
     mounted () {
@@ -106,6 +70,28 @@ export default {
         $('.vdpr-datepicker__calendar-table th').each(function (idx, el) {
             $(el).text($(el).text()[0]);
         });
+
+        function sortClass () {
+            if ($('.vdpr-datepicker__calendar-table tbody .highlighted').length == 1) {
+                $($('.vdpr-datepicker__calendar-table tbody .highlighted')[0]).addClass('highlighted_one');
+            } else if ($('.vdpr-datepicker__calendar-table tbody .highlighted').length > 1) {
+                $($('.vdpr-datepicker__calendar-table tbody .highlighted')[0]).removeClass('highlighted_one').addClass('highlighted_first');
+                $($('.vdpr-datepicker__calendar-table tbody .highlighted')[$('.vdpr-datepicker__calendar-table tbody .highlighted').length - 1]).addClass('highlighted_last');
+            }
+        }
+
+        $('.vdpr-datepicker__calendar-control-prev').click(() => sortClass())
+        $('.vdpr-datepicker__calendar-control-next').click(() => sortClass())
+        $('.vdpr-datepicker__calendar-table tbody td').click(() => sortClass())
+
+        $('.date_range_picker .vdpr-datepicker__button-reset').click(function () {
+            $('.vdpr-datepicker input[type="text"]').click();
+            $('.date_picker_wrapper').removeClass('active')
+        })
+
+        $('.date_range_picker .vdpr-datepicker__button-submit').click(function () {
+            $('.date_picker_wrapper').removeClass('active')
+        })
     }
 }
 </script>
