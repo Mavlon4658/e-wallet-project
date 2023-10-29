@@ -801,6 +801,8 @@ input {
         padding: 0 30px;
         border-radius: 16px;
         background: #262329;
+        position: relative;
+        z-index: 3;
 
         img {
             width: 36px;
@@ -811,6 +813,9 @@ input {
     .account_name{
         display: none;
         text-align: center;
+        position: relative;
+        z-index: 3;
+
         h2{
             color: var(--main-color-ffffff, #FFF);
             font-family: 'Rubik',sans-serif;
