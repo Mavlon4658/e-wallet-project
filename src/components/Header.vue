@@ -11,7 +11,7 @@
       <nav :class="notification_open ? 'nav_active' : ''">
         <ul class="nav_item">
           <li v-for="(item, idx) in navs" :key="idx" :class="`nav_link ${item.class} ${item.path == $route.name ? 'active' : ''}`">
-            <router-link class="link" :to="{name: item.path}">
+            <router-link @click="notification_open = false" class="link" :to="{name: item.path}">
               <span v-html="item.svg"></span>
               {{item.name}}
             </router-link>
