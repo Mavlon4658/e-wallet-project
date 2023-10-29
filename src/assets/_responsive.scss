@@ -381,6 +381,10 @@
         }
     }
 
+    .walletId{
+        margin-bottom: 120px;
+    }
+
     .auth_wrapper {
         .auth_bg {
             display: none;
@@ -495,6 +499,22 @@
         .main_btn {
             width: calc(100% - 32px);
             margin-left: 16px;
+        }
+    }
+
+    .payment {
+        button {
+            span{
+                font-size: 14px
+            }
+        }
+    }
+
+    .walletId {
+        .history_head {
+            .title{
+                font-size: 18px;
+            }
         }
     }
 
