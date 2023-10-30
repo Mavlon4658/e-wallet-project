@@ -98,17 +98,19 @@ export default {
         QrPay
     },
     mounted () {
-        const redirectHome = () => {
-            if (window.screen.width > 920) {
-                this.$router.push({name: 'Home'})
-            }
-        }
+        // const redirectHome = () => {
+        //     if (this.$route.name === 'Settings') {
+        //         if (window.screen.width > 920) {
+        //             this.$router.push({name: 'Home'})
+        //         }
+        //     }
+        // }
 
-        redirectHome();
+        // redirectHome();
 
-        window.addEventListener('resize', function () {
-            redirectHome();
-        })
+        // window.addEventListener('resize', function () {
+        //     redirectHome();
+        // })
     },
     methods: {
         logAout () {
