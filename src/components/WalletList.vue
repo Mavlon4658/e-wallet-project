@@ -5,7 +5,7 @@
             :space-between="16"
             :centeredSlides="true"
             :loop="true"
-            :speed="1000"
+            :speed="1500"
             :pagination="{
                 clickable: true,
                 el: pagination
