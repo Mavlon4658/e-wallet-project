@@ -1,6 +1,6 @@
 <template>
     <div class="payment">
-        <button>
+        <button @click="$router.push({name: 'WalletSave'})">
             <img src="@/assets/images/money-send.svg" alt="">
             <span>Отправить</span>
         </button>
