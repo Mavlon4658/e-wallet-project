@@ -6,8 +6,9 @@ import LogIn from '../auth/LogIn.vue'
 import HomeDefault from '../components/HomeDefault.vue'
 import Home from '@/views/Home.vue'
 import History from '@/views/History.vue'
-import Wallet from '@/views/Wallet.vue'
-import WalletSave from '@/views/WalletSave.vue'
+import Wallet from '@/views/wallet/Wallet.vue'
+import WalletSave from '@/views/wallet/WalletSave.vue'
+import WalletId from '@/views/wallet/WalletId.vue'
 import Payment from '@/views/Payment.vue'
 import Settings from '@/views/Settings.vue'
 
@@ -21,6 +22,7 @@ const routes = [
         {path: '/', name: "Home", component: Home},
         {path: 'history', name: "History", component: History},
         {path: 'wallet', name: "Wallet", component: Wallet},
+        {path: 'wallet/:id', name: "WalletId", component: WalletId},
         {path: 'wallet/save', name: "WalletSave", component: WalletSave},
         {path: 'payment', name: "Payment", component: Payment},
         {path: 'settings', name: "Settings", component: Settings},
