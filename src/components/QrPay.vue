@@ -11,7 +11,7 @@
                     <img class="main_img" src="@/assets/images/qr_pay_qr.png" alt="">
                     <img class="avatar_icon" src="@/assets/images/avatar.svg" alt="">
                 </div>
-                <img class="hand_img" src="@/assets/images/hand_money.png" alt="">
+                <img class="hand_img" src="@/assets/images/hand_money.svg" alt="">
             </div>
         </div>
     </div>

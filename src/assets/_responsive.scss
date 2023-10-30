@@ -48,8 +48,8 @@
         }
 
         .account_name.account_name_active {
-            z-index: 1000;
             position: relative;
+            z-index: 10;
         }
 
         nav {
@@ -134,7 +134,7 @@
 
         .header_profile,
         .notification {
-            z-index: 10;
+            z-index: 3;
             height: auto;
             padding: 0;
             background-color: transparent;
@@ -215,7 +215,7 @@
         }
 
         .header_profile.header_profile_active {
-            z-index: 1000;
+            z-index: 10;
             position: relative;
         }
     }
