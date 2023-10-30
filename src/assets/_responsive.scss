@@ -49,6 +49,7 @@
 
         .account_name.account_name_active {
             z-index: 1000;
+            position: relative;
         }
 
         nav {
@@ -133,7 +134,7 @@
 
         .header_profile,
         .notification {
-            z-index: 3;
+            z-index: 10;
             height: auto;
             padding: 0;
             background-color: transparent;
@@ -214,7 +215,8 @@
         }
 
         .header_profile.header_profile_active {
-            z-index: 100;
+            z-index: 1000;
+            position: relative;
         }
     }
     
@@ -579,6 +581,13 @@
         padding: 15px;
         gap: 15px;
         margin: 0 24px 0 24px;
+
+        .qr_img {
+            .qr_avatar {
+                width: 45px;
+            }
+        }
+
         .qr_name{
             h4{
                 font-size: 18px;
