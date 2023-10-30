@@ -5,6 +5,7 @@
             :space-between="16"
             :centeredSlides="true"
             :loop="true"
+            :speed="500"
             :pagination="{
                 clickable: true,
                 el: pagination
@@ -21,7 +22,7 @@
             :modules="modules"
             class="wallet_slider"
         >
-            <swiper-slide v-for="i in 5" :key="i">
+            <swiper-slide v-for="(item, i) in wallet_list" :key="i">
                 <div class="slider_item">
                     <svg width="155" height="102" viewBox="0 0 155 102" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.15">
@@ -30,8 +31,8 @@
                             <path d="M47.0706 -58.5843C47.0706 -58.5843 51.5905 -14.1593 69.7597 4.88849C90.4208 26.5486 117.35 13.1009 142.309 29.6268C163.348 43.5579 162.686 70.514 187.319 75.9863C199.545 78.7022 219.336 74.1422 219.336 74.1422" stroke="#262329" stroke-width="0.811107"/>
                         </g>
                     </svg>
-                    <div class="currency">USD</div>
-                    <div class="money">$ 21,860.02</div>
+                    <div class="currency">{{item.currency}}</div>
+                    <div class="money">{{item.amount}}</div>
                 </div>
             </swiper-slide>
         </swiper>
@@ -76,5 +77,15 @@ export default {
             pagination
         };
     },
+    data () {
+        return {
+            wallet_list: [
+                {currency: 'RUB', amount: '₽ 21,860.02'},
+                {currency: 'USD', amount: '$ 21,860.02'},
+                {currency: 'EUR', amount: '€ 18,250.45'},
+                {currency: 'IDR', amount: 'Rp 2,124.74'},
+            ]
+        }
+    }
 };
 </script>

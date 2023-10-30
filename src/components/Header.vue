@@ -1,7 +1,7 @@
 <template>
   <div class="main_container">
     <header class="header">
-      <router-link to="/" :class="`header_profile ${notification_open ? 'header_profile_active' : ''}`">
+      <router-link @click="bodyRemoveOverflow()" to="/" :class="`header_profile ${notification_open ? 'header_profile_active' : ''}`">
           <img src="@/assets/images/avatar.svg" alt="">
       </router-link>
       <div :class="`account_name ${notification_open ? 'account_name_active' : ''}`">
@@ -11,7 +11,7 @@
       <nav :class="notification_open ? 'nav_active' : ''">
         <ul class="nav_item">
           <li v-for="(item, idx) in navs" :key="idx" :class="`nav_link ${item.class} ${item.path == $route.name ? 'active' : ''}`">
-            <router-link @click="notification_open = false" class="link" :to="{name: item.path}">
+            <router-link @click="bodyRemoveOverflow()" class="link" :to="{name: item.path}">
               <span v-html="item.svg"></span>
               {{item.name}}
             </router-link>
@@ -127,6 +127,16 @@
         } else {
           $('body').removeClass('active');
         }
+      }
+    },
+    methods: {
+      notificationOpen () {
+        this.notification_open = !this.notification_open;
+        $('body').removeClass('scanner_active')
+      },
+      bodyRemoveOverflow () {
+        $('body').removeClass('scanner_active')
+        this.notification_open = false;
       }
     }
   }

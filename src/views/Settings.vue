@@ -97,10 +97,23 @@ export default {
     components: {
         QrPay
     },
+    mounted () {
+        const redirectHome = () => {
+            if (window.screen.width > 920) {
+                this.$router.push({name: 'Home'})
+            }
+        }
+
+        redirectHome();
+
+        window.addEventListener('resize', function () {
+            redirectHome();
+        })
+    },
     methods: {
         logAout () {
             this.$router.push({name: 'AuthIn'})
-        }
+        },
     }
 };
 </script>
