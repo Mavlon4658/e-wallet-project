@@ -589,7 +589,6 @@
         }
     }
 
-
     .date_picker_wrapper.active {
         position: fixed;
         top: 0;
@@ -657,7 +656,6 @@
         }
     }
 
-
     .pay_modal_wrapper{
         .modal_bg{
             z-index: 44;
@@ -677,8 +675,6 @@
     }
 
 }
-
-@media (max-width: 768px) {}
 
 @media (min-width: 576px) {
     .auth_wrapper {
