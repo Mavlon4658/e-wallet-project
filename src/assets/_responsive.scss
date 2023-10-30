@@ -49,7 +49,7 @@
 
         .account_name.account_name_active {
             position: relative;
-            z-index: 10;
+            z-index: 1000;
         }
 
         nav {
@@ -131,13 +131,24 @@
         nav.nav_active {
             z-index: 1000;
         }
+        
+        .header_profile {
+            z-index: 10;
+            height: auto;
+            padding: 0;
+            background-color: transparent;
+        }
 
-        .header_profile,
         .notification {
             z-index: 4;
             height: auto;
             padding: 0;
             background-color: transparent;
+
+            .notification_in {
+                position: relative;
+                z-index: 4;
+            }
 
             .notifictaion_list {
                 top: -10px;
@@ -145,7 +156,7 @@
                 margin: 0;
                 width: 100vw;
                 height: 100vh;
-                z-index: -1;
+                z-index: 1;
                 border: none;
                 border-radius: 0px;
                 padding-bottom: 124px;
@@ -215,7 +226,7 @@
         }
 
         .header_profile.header_profile_active {
-            z-index: 10;
+            z-index: 1000;
             position: relative;
         }
     }
