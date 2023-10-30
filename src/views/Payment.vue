@@ -43,7 +43,7 @@
 
             <!-- Scanner -->
             <div v-if="scanner_open" class="scanner">
-                <qrcode-stream @decode="onDecode" class="qrcode">
+                <qrcode-stream @decode="onDecode" :track="drawOutline" class="qrcode">
                     <div class="scanner_box">
                         <svg width="1280" height="1280" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1_7)">
@@ -63,7 +63,6 @@
                         </div>
                     </div>
                 </qrcode-stream>
-                <qrcode-drop-zone></qrcode-drop-zone>
                 <!-- <qrcode-capture></qrcode-capture> -->
             </div>
         </div>
@@ -87,7 +86,8 @@ export default {
     data () {
         return {
             darag_enter: false,
-            scanner_open: false
+            scanner_open: false,
+            qrUrl: ""
         }
     },
     watch: {
@@ -129,7 +129,46 @@ export default {
             this.$refs.bg_img.style.display = 'block';
         },
         onDecode (decodedString) {
-            console.log(decodedString);
+            this.qrUrl = decodedString;
+        },
+        drawOutline (decodeBeta, context) {
+            // console.log(decodeBeta);
+            let qrCorner = {}
+            if (decodeBeta.topLeftCorner.y > decodeBeta.topRightCorner.y) {
+                qrCorner.top = decodeBeta.topRightCorner.y
+            } else {
+                qrCorner.top = decodeBeta.topLeftCorner.y
+            }
+
+            if (decodeBeta.topLeftCorner.x > decodeBeta.bottomLeftCorner.x) {
+                qrCorner.left = decodeBeta.bottomLeftCorner.x;
+            } else {
+                qrCorner.left = decodeBeta.topLeftCorner.x;
+            }
+
+            if (decodeBeta.topRightCorner.x > decodeBeta.bottomRightCorner.x) {
+                qrCorner.right = decodeBeta.topRightCorner.x;
+            } else {
+                qrCorner.right = decodeBeta.bottomRightCorner.x;
+            }
+
+            if (decodeBeta.bottomLeftCorner.y > decodeBeta.bottomRightCorner.y) {
+                qrCorner.bottom = decodeBeta.bottomLeftCorner.y;
+            } else {
+                qrCorner.bottom = decodeBeta.bottomRightCorner.y;
+            }
+
+            let elementPosition = $('.scanner_box svg')[0].getBoundingClientRect();
+            
+            if (
+                qrCorner.top >= elementPosition.top && 
+                qrCorner.right <= elementPosition.right &&
+                qrCorner.bottom <= elementPosition.bottom &&
+                qrCorner.left >= elementPosition.left
+            ) {
+                console.log(this.qrUrl);
+                // window.open(this.qrUrl, '_blank');
+            }
         }
     }
 }
