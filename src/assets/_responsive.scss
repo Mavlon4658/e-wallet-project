@@ -500,9 +500,11 @@
     .wallet_save {
         border-radius: 16px;
         background: #262329;
-        height: 558px;
+        height: auto;
         width: calc(100% - 40px);
         margin-left: 20px;
+        margin-bottom: 150px;
+        gap: 139px;
 
         .input {
             width: calc(100% - 32px);
@@ -511,6 +513,11 @@
 
         .user {
             width: calc(100% - 32px);
+        }
+
+        .search {
+            top: 233px;
+            padding: 0px 16px;
         }
 
         .main_btn {

@@ -2490,6 +2490,109 @@ input {
         }
     }
 
+    .search {
+        position: absolute;
+        width: 100%;
+        padding: 0 24px;
+        top: 260px;
+        z-index: 2;
+        background: #262329;
+
+        .search_input {
+            border-radius: 12px;
+            border: 1px solid #A6A4B4;
+            background: #262329;
+            height: 54px;
+            position: relative;
+            margin-bottom: 6px;
+
+            img {
+                position: absolute;
+                left: 16px;
+                top: 16px;
+                z-index: 2;
+                cursor: pointer;
+            }
+
+            input {
+                width: 100%;
+                height: 100%;
+                padding-left: 44px;
+                padding-right: 16px;
+                color: #FFF;
+                font-family: "Rubik", sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 135%;
+            }
+        }
+
+        .search_result {
+            border-radius: 8px;
+            border: 1px solid #A6A4B4;
+            background: #262329;
+            padding: 4px 0;
+            box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+
+            button {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                padding: 10px 14px;
+                gap: 8px;
+                position: relative;
+                transition: .2s linear all;
+
+                &:hover {
+                    background: #3B363F;
+                }
+
+                img {
+                    width: 36px;
+                    height: 36px;
+                }
+
+                .user_data {
+                    .name {
+                        color: #FFF;
+                        font-family: "Rubik" sans-serif;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 135%;
+                        margin-bottom: 2px;
+                    }
+
+                    .phone {
+                        color: #A6A4B4;
+                        font-family: "Rubik", sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    right: 14px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: none;
+                }
+            }
+
+            button.active {
+                background: #3B363F;
+
+                svg {
+                    display: block;
+                }
+            }
+        }
+    }
+
     .main_btn {
         width: calc(100% - 48px);
         margin-left: 24px;
