@@ -12,7 +12,6 @@
                     <img class="avatar_icon" src="@/assets/images/avatar.svg" alt="">
                 </div>
                 <img class="hand_img" src="@/assets/images/hand_money.png" alt="">
-                <img class="close_img" src="@/assets/images/qrpay_close.svg" alt="">
             </div>
         </div>
     </div>

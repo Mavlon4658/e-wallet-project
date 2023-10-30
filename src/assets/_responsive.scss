@@ -43,15 +43,11 @@
         align-items: center;
         justify-content: space-between;
 
-        .header_profile_active {
-            z-index: 1000 !important;
-        }
-
         .account_name {
             display: block;
         }
 
-        .account_name_active {
+        .account_name.account_name_active {
             z-index: 1000;
         }
 
@@ -215,6 +211,10 @@
                     }
                 }
             }
+        }
+
+        .header_profile.header_profile_active {
+            z-index: 100;
         }
     }
     
