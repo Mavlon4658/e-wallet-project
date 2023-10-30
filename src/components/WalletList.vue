@@ -83,6 +83,7 @@ export default {
                 {currency: 'RUB', amount: '₽ 21,860.02'},
                 {currency: 'USD', amount: '$ 21,860.02'},
                 {currency: 'EUR', amount: '€ 18,250.45'},
+                {currency: 'USD', amount: '$ 21,860.02'},
                 {currency: 'IDR', amount: 'Rp 2,124.74'},
             ]
         }
