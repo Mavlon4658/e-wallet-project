@@ -12,6 +12,8 @@
             @keyup="handleKeyUp($event, (item - 1), code[(item - 1)])"
             @input="$emit('update:confirm_code', code.join(''))"
             :ref="`confirm_input_${item - 1}`"
+            pattern="[0-9]*"
+            inputmode="numeric"
         >
     </div>
 </template>

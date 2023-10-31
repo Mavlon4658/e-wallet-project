@@ -5,7 +5,15 @@
             <WalletList />
             <div class="input">
                 <span>Сумма </span>
-                <input type="text" v-model="amount">
+                <input
+                    v-model="maskedValue"
+                    v-maska="bindedObject"
+                    data-maska="9 99#"
+                    data-maska-tokens="9:[0-9]:repeated"
+                    data-maska-reversed
+                    pattern="[0-9]*"
+                    inputmode="numeric"
+                >
             </div>
             <div class="user" @click="openUserSelect()">
                 <img src="@/assets/images/avatar.svg" alt="">
@@ -21,7 +29,7 @@
                 <input type="text" value="+7 (963) 214-90-12">
             </div>
             <div class="search_result">
-                <button v-for="i in 4" :key="i" :class="i == select_user ? 'active' : ''" @click="selectUser(i)">
+                <button v-for="i in 10" :key="i" :class="i == select_user ? 'active' : ''" @click="selectUser(i)">
                     <img src="@/assets/images/avatar.svg" alt="">
                     <div class="user_data">
                         <div class="name">Phoenix Baker</div>
@@ -42,9 +50,11 @@
 import WalletList from '@/components/WalletList.vue'
 import Button from '@/components/Button.vue'
 import PayModal from '@/components/PayModal.vue'
+import { vMaska } from "maska";
 
 export default {
     name: "WalletSave",
+    directives: { maska: vMaska },
     components: {
         WalletList,
         Button,
@@ -52,7 +62,12 @@ export default {
     },
     data () {
         return {
-            amount: '24 000',
+            maskedValue: '1200000000',
+            bindedObject: {
+                masked: "",
+                unmasked: "",
+                completed: false,
+            },
             modal_active: false,
             select_user: 2,
             open_select_user: false,
