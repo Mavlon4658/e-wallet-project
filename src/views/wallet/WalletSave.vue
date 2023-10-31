@@ -7,7 +7,7 @@
                 <span>Сумма </span>
                 <input type="text" v-model="amount">
             </div>
-            <div class="user" @click="open_select_user = true">
+            <div class="user" @click="openUserSelect()">
                 <img src="@/assets/images/avatar.svg" alt="">
                 <div>
                     <div class="name">Phoenix Baker</div>
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="open_select_user" class="search">
+        <div v-if="open_select_user" class="search" ref="box">
             <div class="search_input">
                 <img src="@/assets/images/search_icon.svg" alt="" class="icon">
                 <input type="text" value="+7 (963) 214-90-12">
@@ -56,7 +56,11 @@ export default {
             modal_active: false,
             select_user: 2,
             open_select_user: false,
+            other_click: false,
         }
+    },
+    mounted () {
+        document.addEventListener('click', this.handleClickOutsideBox);
     },
     methods: {
         Save () {
@@ -65,11 +69,28 @@ export default {
         closeModal () {
             this.modal_active = false;
         },
+        openUserSelect () {
+            this.open_select_user = true;
+            this.other_click = false;
+        },
         selectUser (idx) {
             this.select_user = idx;
             this.open_select_user = false;
+        },
+        handleClickOutsideBox(event) {
+            const box = this.$refs.box;
+            if (box && !box.contains(event.target) && this.open_select_user) {
+                if (this.other_click) {
+                    this.open_select_user = false;
+                }
+                this.other_click = true;
+            }
         }
+    },
+    beforeUnmount() {
+        document.removeEventListener('click', this.handleClickOutsideBox);
     }
+
 }
 </script>
 
